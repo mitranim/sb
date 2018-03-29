@@ -2,7 +2,7 @@
 
 This is a different type of style library:
 
-* no "styles", just a blank canvas and layout tools
+* no "styles", just a blank canvas and flexbox layout tools
 * no "elements", just primitive common-sense classes
 * must be copied and pasted; it will never break your application with a "minor" update
 
@@ -10,7 +10,7 @@ It consists of:
 
   * a style reset
   * common-sense classes for primitive properties
-  * flex layout shortcuts
+  * flexbox layout shortcuts
 
 It _does not include_:
 
