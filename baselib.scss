@@ -148,8 +148,10 @@
 .order-12 {order: 12}
 
 /**
- * whitespace
+ * spacing
  */
+
+.center-by-margins {margin: auto;}
 
 .gaps-0x25-v > :not(:last-child) {margin-bottom: 0.25rem}
 .gaps-0x5-v  > :not(:last-child) {margin-bottom: 0.5rem}
