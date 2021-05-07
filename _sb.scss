@@ -1,0 +1,581 @@
+/* https://github.com/mitranim/style-base */
+
+/*
+Guideline.
+
+  * Small building blocks.
+
+  * Everything is optional.
+
+  * Any combination of 2+ properties must be available as a mixin first, and
+    then if possible, as a class.
+*/
+
+@mixin all {@include cls;}
+
+@mixin cls {
+  @include cls-flex;
+  @include cls-spacing;
+  @include cls-pos;
+  @include cls-dis;
+  @include cls-wid;
+  @include cls-hig;
+  @include cls-over;
+  @include cls-cur;
+  @include cls-vis;
+  @include cls-table;
+  @include cls-text-align;
+  @include cls-valign;
+  @include cls-dec;
+  @include cls-trans;
+  @include cls-wspace;
+  @include cls-ellipsis;
+  @include cls-wei;
+  @include cls-font;
+  @include cls-round;
+  @include cls-bg;
+}
+
+@mixin cls-flex {
+  .flex        {@include dis-flex;}
+  .inline-flex {@include dis-inline-flex;}
+  .row         {@include flex-dir(row);}
+  .col         {@include flex-dir(col);}
+
+  .rss, .row-start-start     {@include flex-layout(row, start, start);}
+  .rsc, .row-start-center    {@include flex-layout(row, start, center);}
+  .rse, .row-start-end       {@include flex-layout(row, start, end);}
+  .rsx, .row-start-stretch   {@include flex-layout(row, start, stretch);}
+
+  .rcs, .row-center-start    {@include flex-layout(row, center, start);}
+  .rcc, .row-center-center   {@include flex-layout(row, center, center);}
+  .rce, .row-center-end      {@include flex-layout(row, center, end);}
+  .rcx, .row-center-stretch  {@include flex-layout(row, center, stretch);}
+
+  .res, .row-end-start       {@include flex-layout(row, end, start);}
+  .rec, .row-end-center      {@include flex-layout(row, end, center);}
+  .ree, .row-end-end         {@include flex-layout(row, end, end);}
+  .rex, .row-end-stretch     {@include flex-layout(row, end, stretch);}
+
+  .ras, .row-around-start    {@include flex-layout(row, around, start);}
+  .rac, .row-around-center   {@include flex-layout(row, around, center);}
+  .rae, .row-around-end      {@include flex-layout(row, around, end);}
+  .rax, .row-around-stretch  {@include flex-layout(row, around, stretch);}
+
+  .rbs, .row-between-start   {@include flex-layout(row, between, start);}
+  .rbc, .row-between-center  {@include flex-layout(row, between, center);}
+  .rbe, .row-between-end     {@include flex-layout(row, between, end);}
+  .rbx, .row-between-stretch {@include flex-layout(row, between, stretch);}
+
+  .css, .col-start-start     {@include flex-layout(col, start, start);}
+  .csc, .col-start-center    {@include flex-layout(col, start, center);}
+  .cse, .col-start-end       {@include flex-layout(col, start, end);}
+  .csx, .col-start-stretch   {@include flex-layout(col, start, stretch);}
+
+  .ccs, .col-center-start    {@include flex-layout(col, center, start);}
+  .ccc, .col-center-center   {@include flex-layout(col, center, center);}
+  .cce, .col-center-end      {@include flex-layout(col, center, end);}
+  .ccx, .col-center-stretch  {@include flex-layout(col, center, stretch);}
+
+  .ces, .col-end-start       {@include flex-layout(col, end, start);}
+  .cec, .col-end-center      {@include flex-layout(col, end, center);}
+  .cee, .col-end-end         {@include flex-layout(col, end, end);}
+  .cex, .col-end-stretch     {@include flex-layout(col, end, stretch);}
+
+  .cas, .col-around-start    {@include flex-layout(col, around, start);}
+  .cac, .col-around-center   {@include flex-layout(col, around, center);}
+  .cae, .col-around-end      {@include flex-layout(col, around, end);}
+  .cax, .col-around-stretch  {@include flex-layout(col, around, stretch);}
+
+  .cbs, .col-between-start   {@include flex-layout(col, between, start);}
+  .cbc, .col-between-center  {@include flex-layout(col, between, center);}
+  .cbe, .col-between-end     {@include flex-layout(col, between, end);}
+  .cbx, .col-between-stretch {@include flex-layout(col, between, stretch);}
+
+  .flex-0 {@include flex(0 0);}
+  .flex-1 {@include flex(1 0);}
+  .flex-2 {@include flex(2 0);}
+  .flex-3 {@include flex(3 0);}
+  .flex-4 {@include flex(4 0);}
+  .flex-5 {@include flex(5 0);}
+  .flex-6 {@include flex(6 0);}
+  .flex-7 {@include flex(7 0);}
+  .flex-8 {@include flex(8 0);}
+  .flex-9 {@include flex(9 0);}
+
+  .ord-0 {@include ord(0);}
+  .ord-1 {@include ord(1);}
+  .ord-2 {@include ord(2);}
+  .ord-3 {@include ord(3);}
+  .ord-4 {@include ord(4);}
+  .ord-5 {@include ord(5);}
+  .ord-6 {@include ord(6);}
+  .ord-7 {@include ord(7);}
+  .ord-8 {@include ord(8);}
+  .ord-9 {@include ord(9);}
+
+  .flex-noshrink {@include flex-shrink(0);}
+}
+
+@mixin dis-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin dis-inline-flex {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+@mixin flex-dir-row {
+  -webkit-box-orient:    horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction:    row;
+  flex-direction:        row;
+}
+
+@mixin flex-dir-col {
+  -webkit-box-orient:    vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction:    column;
+  flex-direction:        column;
+}
+
+@mixin flex-dir($val) {
+  @if      $val == row {@include flex-dir-row;}
+  @else if $val == col {@include flex-dir-col;}
+  @else {@error 'unknown flex-direction: #{$val}';}
+}
+
+@mixin flex-just-start {
+  -webkit-box-pack: start;
+  -ms-flex-pack:    start;
+  justify-content:  flex-start;
+}
+
+@mixin flex-just-center {
+  -webkit-box-pack: center;
+  -ms-flex-pack:    center;
+  justify-content:  center;
+}
+
+@mixin flex-just-end {
+  -webkit-box-pack: end;
+  -ms-flex-pack:    end;
+  justify-content:  flex-end;
+}
+
+@mixin flex-just-around {
+  -ms-flex-pack:   distribute;
+  justify-content: space-around;
+}
+
+@mixin flex-just-between {
+  -webkit-box-pack: justify;
+  -ms-flex-pack:    justify;
+  justify-content:  space-between;
+}
+
+@mixin flex-just($val) {
+  @if      $val == start   {@include flex-just-start;}
+  @else if $val == center  {@include flex-just-center;}
+  @else if $val == end     {@include flex-just-end;}
+  @else if $val == around  {@include flex-just-around;}
+  @else if $val == between {@include flex-just-between;}
+  @else {@error 'unknown flex-just (justify-content) property: #{$val}';}
+}
+
+@mixin flex-align-start {
+  -webkit-box-align: start;
+  -ms-flex-align:    start;
+  align-items:       flex-start;
+}
+
+@mixin flex-align-center {
+  -webkit-box-align: center;
+  -ms-flex-align:    center;
+  align-items:       center;
+}
+
+@mixin flex-align-end {
+  -webkit-box-align: end;
+  -ms-flex-align:    end;
+  align-items:       flex-end;
+}
+
+@mixin flex-align-stretch {
+  -webkit-box-align: stretch;
+  -ms-flex-align:    stretch;
+  align-items:       stretch;
+}
+
+@mixin flex-align($val) {
+  @if      $val == start   {@include flex-align-start;}
+  @else if $val == center  {@include flex-align-center;}
+  @else if $val == end     {@include flex-align-end;}
+  @else if $val == stretch {@include flex-align-stretch;}
+  @else {@error 'unknown flex-align (align-items) property: #{$val}';}
+}
+
+@mixin flex-layout($dir: none, $justify: none, $align: none) {
+  @if $dir     != none {@include flex-dir($dir);}
+  @if $justify != none {@include flex-just($justify);}
+  @if $align   != none {@include flex-align($align);}
+}
+
+@mixin flex-wrap($val: wrap) {
+  -ms-flex-wrap: $val;
+  flex-wrap:     $val;
+}
+
+@mixin flex-nowrap {
+  @include flex-wrap(nowrap);
+}
+
+@mixin flex($val) {
+  -webkit-box-flex: $val;
+  -ms-flex:         $val;
+  flex:             $val;
+}
+
+@mixin flex-self-start {
+  -ms-flex-item-align: start;
+  align-self:          flex-start;
+}
+
+@mixin flex-self-center {
+  -ms-flex-item-align: center;
+  -ms-grid-row-align:  center;
+  align-self:          center;
+}
+
+@mixin flex-self-end {
+  -ms-flex-item-align: end;
+  align-self:          flex-end;
+}
+
+@mixin flex-self-stretch {
+  -ms-flex-item-align: stretch;
+  -ms-grid-row-align:  stretch;
+  align-self:          stretch;
+}
+
+@mixin flex-self($val) {
+  @if      $val == start   {@include flex-self-start;}
+  @else if $val == center  {@include flex-self-center;}
+  @else if $val == end     {@include flex-self-end;}
+  @else if $val == stretch {@include flex-self-stretch;}
+  @else {@error 'unknown flex-self (align-self) property: #{$val}';}
+}
+
+@mixin flex-shrink($val) {
+  -ms-flex-negative: $val;
+  flex-shrink:       $val;
+}
+
+@mixin ord($val) {
+  -webkit-box-ordinal-group: $val + 1;
+  -ms-flex-order:            $val;
+  order:                     $val;
+}
+
+@mixin cls-spacing {
+  @include cls-margin;
+  @include cls-padding;
+  @include cls-gaps;
+}
+
+@mixin cls-margin {
+  .mar-t-0x5 {margin-top:    0.5rem;}
+  .mar-t-1   {margin-top:    1rem;}
+  .mar-t-2   {margin-top:    2rem;}
+  .mar-t-4   {margin-top:    4rem;}
+  .mar-b-0x5 {margin-bottom: 0.5rem;}
+  .mar-b-1   {margin-bottom: 1rem;}
+  .mar-b-2   {margin-bottom: 2rem;}
+  .mar-b-4   {margin-bottom: 4rem;}
+  .mar-r-0x5 {margin-right:  0.5rem;}
+  .mar-r-1   {margin-right:  1rem;}
+  .mar-r-2   {margin-right:  2rem;}
+  .mar-r-4   {margin-right:  4rem;}
+  .mar-l-0x5 {margin-left:   0.5rem;}
+  .mar-l-1   {margin-left:   1rem;}
+  .mar-l-2   {margin-left:   2rem;}
+  .mar-l-4   {margin-left:   4rem;}
+  .mar-v-0x5 {@include mar-v(0.5rem);}
+  .mar-v-1   {@include mar-v(1rem);}
+  .mar-v-2   {@include mar-v(2rem);}
+  .mar-v-4   {@include mar-v(4rem);}
+  .mar-h-0x5 {@include mar-h(0.5rem);}
+  .mar-h-1   {@include mar-h(1rem);}
+  .mar-h-2   {@include mar-h(2rem);}
+  .mar-h-4   {@include mar-h(4rem);}
+  .mar-0x5   {margin: 0.5rem;}
+  .mar-1     {margin: 1rem;}
+  .mar-2     {margin: 2rem;}
+  .mar-4     {margin: 4rem;}
+}
+
+@mixin cls-padding {
+  .pad-t-0x5 {padding-top:    0.5rem;}
+  .pad-t-1   {padding-top:    1rem;}
+  .pad-t-2   {padding-top:    2rem;}
+  .pad-t-4   {padding-top:    4rem;}
+  .pad-b-0x5 {padding-bottom: 0.5rem;}
+  .pad-b-1   {padding-bottom: 1rem;}
+  .pad-b-2   {padding-bottom: 2rem;}
+  .pad-b-4   {padding-bottom: 4rem;}
+  .pad-r-0x5 {padding-right:  0.5rem;}
+  .pad-r-1   {padding-right:  1rem;}
+  .pad-r-2   {padding-right:  2rem;}
+  .pad-r-4   {padding-right:  4rem;}
+  .pad-l-0x5 {padding-left:   0.5rem;}
+  .pad-l-1   {padding-left:   1rem;}
+  .pad-l-2   {padding-left:   2rem;}
+  .pad-l-4   {padding-left:   4rem;}
+  .pad-v-0x5 {@include pad-v(0.5rem);}
+  .pad-v-1   {@include pad-v(1rem);}
+  .pad-v-2   {@include pad-v(2rem);}
+  .pad-v-4   {@include pad-v(4rem);}
+  .pad-h-0x5 {@include pad-h(0.5rem);}
+  .pad-h-1   {@include pad-h(1rem);}
+  .pad-h-2   {@include pad-h(2rem);}
+  .pad-h-4   {@include pad-h(4rem);}
+  .pad-0x5   {padding: 0.5rem;}
+  .pad-1     {padding: 1rem;}
+  .pad-2     {padding: 2rem;}
+  .pad-4     {padding: 4rem;}
+}
+
+@mixin cls-gaps {
+  .gaps-v-0x5    {@include gaps-v(0.5rem);}
+  .gaps-v-1      {@include gaps-v(1rem);}
+  .gaps-v-2      {@include gaps-v(2rem);}
+  .gaps-v-4      {@include gaps-v(4rem);}
+  .gaps-h-0x5    {@include gaps-h(0.5rem);}
+  .gaps-h-1      {@include gaps-h(1rem);}
+  .gaps-h-2      {@include gaps-h(2rem);}
+  .gaps-h-4      {@include gaps-h(4rem);}
+  .gaps-v-letter {@include gaps-v(1ex);}           // TODO better letter height.
+  .gaps-h-letter {@include gaps-h(calc(1em / 4));} // TODO better letter width.
+}
+
+@mixin mar-v($val) {
+  margin-top:    $val;
+  margin-bottom: $val;
+}
+
+@mixin mar-h($val) {
+  margin-left:  $val;
+  margin-right: $val;
+}
+
+@mixin pad-v($val) {
+  padding-top:    $val;
+  padding-bottom: $val;
+}
+
+@mixin pad-h($val) {
+  padding-left:  $val;
+  padding-right: $val;
+}
+
+@mixin gaps-v($val) {
+  > :not(:last-child) {margin-bottom: $val;}
+}
+
+@mixin gaps-h($val) {
+  > :not(:last-child) {margin-right: $val;}
+}
+
+@mixin cls-pos {
+  .rel        {position: relative;}
+  .abs        {position: absolute;}
+  .static     {position: static;}
+  .fixed      {position: fixed;}
+  .sticky     {@include sticky;}
+  .mar-center {@include mar-center;}
+}
+
+@mixin sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+@mixin mar-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin cls-dis {
+  .block        {display: block;}
+  .inline       {display: inline;}
+  .inline-block {display: inline-block;}
+  .inline-table {display: inline-table;}
+  .table        {display: table;}
+  .table-row    {display: table-row;}
+  .table-column {display: table-column;}
+  .table-cell   {display: table-cell;}
+  .list-item    {display: list-item;}
+}
+
+@mixin cls-wid {
+  .wid-25p   {width: 25%;}
+  .wid-50p   {width: 50%;}
+  .wid-75p   {width: 75%;}
+  .wid-100p  {width: 100%;}
+  .wid-100vw {width: 100vw;}
+}
+
+@mixin cls-hig {
+  .hig-25p   {height: 25%;}
+  .hig-50p   {height: 50%;}
+  .hig-75p   {height: 75%;}
+  .hig-100p  {height: 100%;}
+  .hig-100vh {height: 100vh;}
+}
+
+@mixin cls-over {
+  .over-hidden   {overflow: hidden;}
+  .over-x-scroll {@include over-x-scroll;}
+  .over-y-scroll {@include over-y-scroll;}
+}
+
+@mixin over-x-scroll {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+@mixin over-y-scroll {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+@mixin cls-cur {
+  .cur-auto          {cursor: auto;}
+  .cur-move          {cursor: move;}
+  .cur-text          {cursor: text;}
+  .cur-wait          {cursor: wait;}
+  .cur-help          {cursor: help;}
+  .cur-default       {cursor: default;}
+  .cur-pointer       {cursor: pointer;}
+  .cur-zoom-in       {cursor: zoom-in;}
+  .cur-progress      {cursor: progress;}
+  .cur-crosshair     {cursor: crosshair;}
+  .cur-not-allowed   {cursor: not-allowed;}
+  .no-pointer-styles {pointer-events: none;}
+  .no-pointer-events {pointer-events: none;}
+}
+
+@mixin cls-vis {
+  .vis-hidden   {visibility: hidden;}
+  .vis-visible  {visibility: visible;}
+  .vis-collapse {visibility: collapse;}
+}
+
+@mixin cls-table {
+  .table-fixed {table-layout: fixed;}
+}
+
+@mixin cls-text-align {
+  .text-left    {text-align: left;}
+  .text-right   {text-align: right;}
+  .text-center  {text-align: center;}
+  .text-justify {text-align: justify;}
+}
+
+@mixin cls-valign {
+  .valign-top         {vertical-align: top;}
+  .valign-middle      {vertical-align: middle;}
+  .valign-bottom      {vertical-align: bottom;}
+  .valign-baseline    {vertical-align: baseline;}
+  .valign-sub         {vertical-align: sub;}
+  .valign-super       {vertical-align: super;}
+  .valign-text-top    {vertical-align: text-top;}
+  .valign-text-bottom {vertical-align: text-bottom;}
+}
+
+@mixin cls-dec {
+  .dec-none         {text-decoration: none;}
+  .dec-overline     {text-decoration: overline;}
+  .dec-underline    {text-decoration: underline;}
+  .dec-line-through {text-decoration: line-through;}
+}
+
+@mixin cls-trans {
+  .trans-none  {text-transform: none;}
+  .trans-upper {text-transform: uppercase;}
+  .trans-lower {text-transform: lowercase;}
+  .trans-cap   {text-transform: capitalize;}
+}
+
+@mixin cls-wspace {
+  .wspace-pre      {white-space: pre;}
+  .wspace-normal   {white-space: normal;}
+  .wspace-nowrap   {white-space: nowrap;}
+  .wspace-pre-wrap {white-space: pre-wrap;}
+  .wspace-pre-line {white-space: pre-line;}
+}
+
+@mixin cls-ellipsis {
+  .ellipsis, .ellipsis * {
+    @include ellipsis;
+  }
+}
+
+// Correct usage requires two selectors, see `cls-ellipsis`.
+@mixin ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@mixin cls-wei {
+  .wei-normal   {font-weight: normal;}
+  .wei-bold     {font-weight: bold;}
+  .wei-semibold {font-weight: 500;}
+  .wei-bolder   {font-weight: bolder;}
+  .wei-lighter  {font-weight: lighter;}
+  .wei-100      {font-weight: 100;}
+  .wei-200      {font-weight: 200;}
+  .wei-300      {font-weight: 300;}
+  .wei-400      {font-weight: 400;}
+  .wei-500      {font-weight: 500;}
+  .wei-600      {font-weight: 600;}
+  .wei-700      {font-weight: 700;}
+  .wei-800      {font-weight: 800;}
+  .wei-900      {font-weight: 900;}
+}
+
+@mixin cls-font {
+  .font-normal  {font-style: normal;}
+  .font-italic  {font-style: italic;}
+  .font-oblique {font-style: oblique;}
+}
+
+@mixin cls-round {
+  .circle {border-radius: 50%;}
+}
+
+@mixin cls-bg {
+  .bg-center  {@include bg-center;}
+  .bg-cover   {@include bg-cover;}
+  .bg-contain {@include bg-contain;}
+}
+
+@mixin bg-center {
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+@mixin bg-cover {
+  @include bg-center;
+  background-size: cover;
+}
+
+@mixin bg-contain {
+  @include bg-center;
+  background-size: contain;
+}
