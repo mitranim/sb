@@ -42,55 +42,46 @@ Guideline.
   .row         {@include flex-dir(row);}
   .col         {@include flex-dir(col);}
 
-  .rss, .row-start-start     {@include flex-layout(row, start, start);}
-  .rsc, .row-start-center    {@include flex-layout(row, start, center);}
-  .rse, .row-start-end       {@include flex-layout(row, start, end);}
-  .rsx, .row-start-stretch   {@include flex-layout(row, start, stretch);}
-
-  .rcs, .row-center-start    {@include flex-layout(row, center, start);}
-  .rcc, .row-center-center   {@include flex-layout(row, center, center);}
-  .rce, .row-center-end      {@include flex-layout(row, center, end);}
-  .rcx, .row-center-stretch  {@include flex-layout(row, center, stretch);}
-
-  .res, .row-end-start       {@include flex-layout(row, end, start);}
-  .rec, .row-end-center      {@include flex-layout(row, end, center);}
-  .ree, .row-end-end         {@include flex-layout(row, end, end);}
-  .rex, .row-end-stretch     {@include flex-layout(row, end, stretch);}
-
-  .ras, .row-around-start    {@include flex-layout(row, around, start);}
-  .rac, .row-around-center   {@include flex-layout(row, around, center);}
-  .rae, .row-around-end      {@include flex-layout(row, around, end);}
-  .rax, .row-around-stretch  {@include flex-layout(row, around, stretch);}
-
-  .rbs, .row-between-start   {@include flex-layout(row, between, start);}
-  .rbc, .row-between-center  {@include flex-layout(row, between, center);}
-  .rbe, .row-between-end     {@include flex-layout(row, between, end);}
-  .rbx, .row-between-stretch {@include flex-layout(row, between, stretch);}
-
-  .css, .col-start-start     {@include flex-layout(col, start, start);}
-  .csc, .col-start-center    {@include flex-layout(col, start, center);}
-  .cse, .col-start-end       {@include flex-layout(col, start, end);}
-  .csx, .col-start-stretch   {@include flex-layout(col, start, stretch);}
-
-  .ccs, .col-center-start    {@include flex-layout(col, center, start);}
-  .ccc, .col-center-center   {@include flex-layout(col, center, center);}
-  .cce, .col-center-end      {@include flex-layout(col, center, end);}
-  .ccx, .col-center-stretch  {@include flex-layout(col, center, stretch);}
-
-  .ces, .col-end-start       {@include flex-layout(col, end, start);}
-  .cec, .col-end-center      {@include flex-layout(col, end, center);}
-  .cee, .col-end-end         {@include flex-layout(col, end, end);}
-  .cex, .col-end-stretch     {@include flex-layout(col, end, stretch);}
-
-  .cas, .col-around-start    {@include flex-layout(col, around, start);}
-  .cac, .col-around-center   {@include flex-layout(col, around, center);}
-  .cae, .col-around-end      {@include flex-layout(col, around, end);}
-  .cax, .col-around-stretch  {@include flex-layout(col, around, stretch);}
-
-  .cbs, .col-between-start   {@include flex-layout(col, between, start);}
-  .cbc, .col-between-center  {@include flex-layout(col, between, center);}
-  .cbe, .col-between-end     {@include flex-layout(col, between, end);}
-  .cbx, .col-between-stretch {@include flex-layout(col, between, stretch);}
+  .row-sta-sta {@include flex-layout(row, sta, sta);}
+  .row-sta-cen {@include flex-layout(row, sta, cen);}
+  .row-sta-end {@include flex-layout(row, sta, end);}
+  .row-sta-str {@include flex-layout(row, sta, str);}
+  .row-cen-sta {@include flex-layout(row, cen, sta);}
+  .row-cen-cen {@include flex-layout(row, cen, cen);}
+  .row-cen-end {@include flex-layout(row, cen, end);}
+  .row-cen-str {@include flex-layout(row, cen, str);}
+  .row-end-sta {@include flex-layout(row, end, sta);}
+  .row-end-cen {@include flex-layout(row, end, cen);}
+  .row-end-end {@include flex-layout(row, end, end);}
+  .row-end-str {@include flex-layout(row, end, str);}
+  .row-aro-sta {@include flex-layout(row, aro, sta);}
+  .row-aro-cen {@include flex-layout(row, aro, cen);}
+  .row-aro-end {@include flex-layout(row, aro, end);}
+  .row-aro-str {@include flex-layout(row, aro, str);}
+  .row-bet-sta {@include flex-layout(row, bet, sta);}
+  .row-bet-cen {@include flex-layout(row, bet, cen);}
+  .row-bet-end {@include flex-layout(row, bet, end);}
+  .row-bet-str {@include flex-layout(row, bet, str);}
+  .col-sta-sta {@include flex-layout(col, sta, sta);}
+  .col-sta-cen {@include flex-layout(col, sta, cen);}
+  .col-sta-end {@include flex-layout(col, sta, end);}
+  .col-sta-str {@include flex-layout(col, sta, str);}
+  .col-cen-sta {@include flex-layout(col, cen, sta);}
+  .col-cen-cen {@include flex-layout(col, cen, cen);}
+  .col-cen-end {@include flex-layout(col, cen, end);}
+  .col-cen-str {@include flex-layout(col, cen, str);}
+  .col-end-sta {@include flex-layout(col, end, sta);}
+  .col-end-cen {@include flex-layout(col, end, cen);}
+  .col-end-end {@include flex-layout(col, end, end);}
+  .col-end-str {@include flex-layout(col, end, str);}
+  .col-aro-sta {@include flex-layout(col, aro, sta);}
+  .col-aro-cen {@include flex-layout(col, aro, cen);}
+  .col-aro-end {@include flex-layout(col, aro, end);}
+  .col-aro-str {@include flex-layout(col, aro, str);}
+  .col-bet-sta {@include flex-layout(col, bet, sta);}
+  .col-bet-cen {@include flex-layout(col, bet, cen);}
+  .col-bet-end {@include flex-layout(col, bet, end);}
+  .col-bet-str {@include flex-layout(col, bet, str);}
 
   .flex-0 {@include flex(0 0);}
   .flex-1 {@include flex(1 0);}
@@ -149,13 +140,13 @@ Guideline.
   @else {@error 'unknown flex-direction: #{$val}';}
 }
 
-@mixin flex-just-start {
+@mixin flex-just-sta {
   -webkit-box-pack: start;
   -ms-flex-pack:    start;
   justify-content:  flex-start;
 }
 
-@mixin flex-just-center {
+@mixin flex-just-cen {
   -webkit-box-pack: center;
   -ms-flex-pack:    center;
   justify-content:  center;
@@ -167,33 +158,33 @@ Guideline.
   justify-content:  flex-end;
 }
 
-@mixin flex-just-around {
+@mixin flex-just-aro {
   -ms-flex-pack:   distribute;
   justify-content: space-around;
 }
 
-@mixin flex-just-between {
+@mixin flex-just-bet {
   -webkit-box-pack: justify;
   -ms-flex-pack:    justify;
   justify-content:  space-between;
 }
 
 @mixin flex-just($val) {
-  @if      $val == start   {@include flex-just-start;}
-  @else if $val == center  {@include flex-just-center;}
-  @else if $val == end     {@include flex-just-end;}
-  @else if $val == around  {@include flex-just-around;}
-  @else if $val == between {@include flex-just-between;}
+  @if      $val == sta {@include flex-just-sta;}
+  @else if $val == cen {@include flex-just-cen;}
+  @else if $val == end {@include flex-just-end;}
+  @else if $val == aro {@include flex-just-aro;}
+  @else if $val == bet {@include flex-just-bet;}
   @else {@error 'unknown flex-just (justify-content) property: #{$val}';}
 }
 
-@mixin flex-align-start {
+@mixin flex-align-sta {
   -webkit-box-align: start;
   -ms-flex-align:    start;
   align-items:       flex-start;
 }
 
-@mixin flex-align-center {
+@mixin flex-align-cen {
   -webkit-box-align: center;
   -ms-flex-align:    center;
   align-items:       center;
@@ -205,17 +196,17 @@ Guideline.
   align-items:       flex-end;
 }
 
-@mixin flex-align-stretch {
+@mixin flex-align-str {
   -webkit-box-align: stretch;
   -ms-flex-align:    stretch;
   align-items:       stretch;
 }
 
 @mixin flex-align($val) {
-  @if      $val == start   {@include flex-align-start;}
-  @else if $val == center  {@include flex-align-center;}
-  @else if $val == end     {@include flex-align-end;}
-  @else if $val == stretch {@include flex-align-stretch;}
+  @if      $val == sta {@include flex-align-sta;}
+  @else if $val == cen {@include flex-align-cen;}
+  @else if $val == end {@include flex-align-end;}
+  @else if $val == str {@include flex-align-str;}
   @else {@error 'unknown flex-align (align-items) property: #{$val}';}
 }
 
@@ -240,12 +231,12 @@ Guideline.
   flex:             $val;
 }
 
-@mixin flex-self-start {
+@mixin flex-self-sta {
   -ms-flex-item-align: start;
   align-self:          flex-start;
 }
 
-@mixin flex-self-center {
+@mixin flex-self-cen {
   -ms-flex-item-align: center;
   -ms-grid-row-align:  center;
   align-self:          center;
@@ -256,17 +247,17 @@ Guideline.
   align-self:          flex-end;
 }
 
-@mixin flex-self-stretch {
+@mixin flex-self-str {
   -ms-flex-item-align: stretch;
   -ms-grid-row-align:  stretch;
   align-self:          stretch;
 }
 
 @mixin flex-self($val) {
-  @if      $val == start   {@include flex-self-start;}
-  @else if $val == center  {@include flex-self-center;}
-  @else if $val == end     {@include flex-self-end;}
-  @else if $val == stretch {@include flex-self-stretch;}
+  @if      $val == sta {@include flex-self-sta;}
+  @else if $val == cen {@include flex-self-cen;}
+  @else if $val == end {@include flex-self-end;}
+  @else if $val == str {@include flex-self-str;}
   @else {@error 'unknown flex-self (align-self) property: #{$val}';}
 }
 
@@ -282,12 +273,12 @@ Guideline.
 }
 
 @mixin cls-spacing {
-  @include cls-margin;
-  @include cls-padding;
-  @include cls-gaps;
+  @include cls-mar;
+  @include cls-pad;
+  @include cls-gap;
 }
 
-@mixin cls-margin {
+@mixin cls-mar {
   .mar-t-0x5 {margin-top:    0.5rem;}
   .mar-t-1   {margin-top:    1rem;}
   .mar-t-2   {margin-top:    2rem;}
@@ -318,7 +309,7 @@ Guideline.
   .mar-4     {margin: 4rem;}
 }
 
-@mixin cls-padding {
+@mixin cls-pad {
   .pad-t-0x5 {padding-top:    0.5rem;}
   .pad-t-1   {padding-top:    1rem;}
   .pad-t-2   {padding-top:    2rem;}
@@ -349,17 +340,17 @@ Guideline.
   .pad-4     {padding: 4rem;}
 }
 
-@mixin cls-gaps {
-  .gaps-v-0x5    {@include gaps-v(0.5rem);}
-  .gaps-v-1      {@include gaps-v(1rem);}
-  .gaps-v-2      {@include gaps-v(2rem);}
-  .gaps-v-4      {@include gaps-v(4rem);}
-  .gaps-h-0x5    {@include gaps-h(0.5rem);}
-  .gaps-h-1      {@include gaps-h(1rem);}
-  .gaps-h-2      {@include gaps-h(2rem);}
-  .gaps-h-4      {@include gaps-h(4rem);}
-  .gaps-v-letter {@include gaps-v(1ex);}           // TODO better letter height.
-  .gaps-h-letter {@include gaps-h(calc(1em / 4));} // TODO better letter width.
+@mixin cls-gap {
+  .gap-v-0x5 {@include gap-v(0.5rem);}
+  .gap-v-1   {@include gap-v(1rem);}
+  .gap-v-2   {@include gap-v(2rem);}
+  .gap-v-4   {@include gap-v(4rem);}
+  .gap-h-0x5 {@include gap-h(0.5rem);}
+  .gap-h-1   {@include gap-h(1rem);}
+  .gap-h-2   {@include gap-h(2rem);}
+  .gap-h-4   {@include gap-h(4rem);}
+  .gap-v-let {@include gap-v(1ex);}           // TODO better letter height.
+  .gap-h-let {@include gap-h(calc(1em / 4));} // TODO better letter width.
 }
 
 @mixin mar-v($val) {
@@ -382,12 +373,12 @@ Guideline.
   padding-right: $val;
 }
 
-@mixin gaps-v($val) {
-  > :not(:last-child) {margin-bottom: $val;}
+@mixin gap-v($val) {
+  > :not([hidden]) + :not([hidden]) {margin-bottom: $val;}
 }
 
-@mixin gaps-h($val) {
-  > :not(:last-child) {margin-right: $val;}
+@mixin gap-h($val) {
+  > :not([hidden]) + :not([hidden]) {margin-right: $val;}
 }
 
 @mixin cls-pos {
@@ -416,7 +407,7 @@ Guideline.
   .inline-table {display: inline-table;}
   .table        {display: table;}
   .table-row    {display: table-row;}
-  .table-column {display: table-column;}
+  .table-col    {display: table-column;}
   .table-cell   {display: table-cell;}
   .list-item    {display: list-item;}
 }
