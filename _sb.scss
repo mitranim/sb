@@ -374,11 +374,11 @@ Guideline.
 }
 
 @mixin gap-v($val) {
-  > :not([hidden]) + :not([hidden]) {margin-bottom: $val;}
+  > :not([hidden]) + :not([hidden]) {margin-top: $val;}
 }
 
 @mixin gap-h($val) {
-  > :not([hidden]) + :not([hidden]) {margin-right: $val;}
+  > :not([hidden]) + :not([hidden]) {margin-left: $val;}
 }
 
 @mixin cls-pos {
