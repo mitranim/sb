@@ -24,8 +24,8 @@ Guideline.
   @include cls-cur;
   @include cls-vis;
   @include cls-table;
-  @include cls-text-align;
-  @include cls-valign;
+  @include cls-text-ali;
+  @include cls-vali;
   @include cls-dec;
   @include cls-trans;
   @include cls-wspace;
@@ -37,10 +37,10 @@ Guideline.
 }
 
 @mixin cls-flex {
-  .flex        {@include dis-flex;}
-  .inline-flex {@include dis-inline-flex;}
-  .row         {@include flex-dir(row);}
-  .col         {@include flex-dir(col);}
+  .flex     {@include dis-flex;}
+  .inl-flex {@include dis-inl-flex;}
+  .row      {@include flex-dir(row);}
+  .col      {@include flex-dir(col);}
 
   .row-sta-sta {@include flex-layout(row, sta, sta);}
   .row-sta-cen {@include flex-layout(row, sta, cen);}
@@ -114,7 +114,7 @@ Guideline.
   display: flex;
 }
 
-@mixin dis-inline-flex {
+@mixin dis-inl-flex {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -140,80 +140,80 @@ Guideline.
   @else {@error 'unknown flex-direction: #{$val}';}
 }
 
-@mixin flex-just-sta {
+@mixin flex-jus-sta {
   -webkit-box-pack: start;
   -ms-flex-pack:    start;
   justify-content:  flex-start;
 }
 
-@mixin flex-just-cen {
+@mixin flex-jus-cen {
   -webkit-box-pack: center;
   -ms-flex-pack:    center;
   justify-content:  center;
 }
 
-@mixin flex-just-end {
+@mixin flex-jus-end {
   -webkit-box-pack: end;
   -ms-flex-pack:    end;
   justify-content:  flex-end;
 }
 
-@mixin flex-just-aro {
+@mixin flex-jus-aro {
   -ms-flex-pack:   distribute;
   justify-content: space-around;
 }
 
-@mixin flex-just-bet {
+@mixin flex-jus-bet {
   -webkit-box-pack: justify;
   -ms-flex-pack:    justify;
   justify-content:  space-between;
 }
 
-@mixin flex-just($val) {
-  @if      $val == sta {@include flex-just-sta;}
-  @else if $val == cen {@include flex-just-cen;}
-  @else if $val == end {@include flex-just-end;}
-  @else if $val == aro {@include flex-just-aro;}
-  @else if $val == bet {@include flex-just-bet;}
-  @else {@error 'unknown flex-just (justify-content) property: #{$val}';}
+@mixin flex-jus($val) {
+  @if      $val == sta {@include flex-jus-sta;}
+  @else if $val == cen {@include flex-jus-cen;}
+  @else if $val == end {@include flex-jus-end;}
+  @else if $val == aro {@include flex-jus-aro;}
+  @else if $val == bet {@include flex-jus-bet;}
+  @else {@error 'unknown flex-jus (justify-content) property: #{$val}';}
 }
 
-@mixin flex-align-sta {
+@mixin flex-ali-sta {
   -webkit-box-align: start;
   -ms-flex-align:    start;
   align-items:       flex-start;
 }
 
-@mixin flex-align-cen {
+@mixin flex-ali-cen {
   -webkit-box-align: center;
   -ms-flex-align:    center;
   align-items:       center;
 }
 
-@mixin flex-align-end {
+@mixin flex-ali-end {
   -webkit-box-align: end;
   -ms-flex-align:    end;
   align-items:       flex-end;
 }
 
-@mixin flex-align-str {
+@mixin flex-ali-str {
   -webkit-box-align: stretch;
   -ms-flex-align:    stretch;
   align-items:       stretch;
 }
 
-@mixin flex-align($val) {
-  @if      $val == sta {@include flex-align-sta;}
-  @else if $val == cen {@include flex-align-cen;}
-  @else if $val == end {@include flex-align-end;}
-  @else if $val == str {@include flex-align-str;}
-  @else {@error 'unknown flex-align (align-items) property: #{$val}';}
+@mixin flex-ali($val) {
+  @if      $val == sta {@include flex-ali-sta;}
+  @else if $val == cen {@include flex-ali-cen;}
+  @else if $val == end {@include flex-ali-end;}
+  @else if $val == str {@include flex-ali-str;}
+  @else {@error 'unknown flex-ali (align-items) property: #{$val}';}
 }
 
-@mixin flex-layout($dir: none, $justify: none, $align: none) {
-  @if $dir     != none {@include flex-dir($dir);}
-  @if $justify != none {@include flex-just($justify);}
-  @if $align   != none {@include flex-align($align);}
+@mixin flex-layout($dir: none, $jus: none, $ali: none) {
+  @if $dir != none {@include flex-dir($dir);}
+  @if $jus != none {@include flex-jus($jus);}
+  @if $ali != none {@include flex-ali($ali);}
 }
 
 @mixin flex-wrap($val: wrap) {
@@ -231,34 +231,34 @@ Guideline.
   flex:             $val;
 }
 
-@mixin flex-self-sta {
+@mixin ali-self-sta {
   -ms-flex-item-align: start;
   align-self:          flex-start;
 }
 
-@mixin flex-self-cen {
+@mixin ali-self-cen {
   -ms-flex-item-align: center;
   -ms-grid-row-align:  center;
   align-self:          center;
 }
 
-@mixin flex-self-end {
+@mixin ali-self-end {
   -ms-flex-item-align: end;
   align-self:          flex-end;
 }
 
-@mixin flex-self-str {
+@mixin ali-self-str {
   -ms-flex-item-align: stretch;
   -ms-grid-row-align:  stretch;
   align-self:          stretch;
 }
 
-@mixin flex-self($val) {
-  @if      $val == sta {@include flex-self-sta;}
-  @else if $val == cen {@include flex-self-cen;}
-  @else if $val == end {@include flex-self-end;}
-  @else if $val == str {@include flex-self-str;}
-  @else {@error 'unknown flex-self (align-self) property: #{$val}';}
+@mixin ali-self($val) {
+  @if      $val == sta {@include ali-self-sta;}
+  @else if $val == cen {@include ali-self-cen;}
+  @else if $val == end {@include ali-self-end;}
+  @else if $val == str {@include ali-self-str;}
+  @else {@error 'unknown ali-self (align-self) property: #{$val}';}
 }
 
 @mixin flex-shrink($val) {
@@ -279,115 +279,115 @@ Guideline.
 }
 
 @mixin cls-mar {
-  .mar-t-0x5 {margin-top:    0.5rem;}
-  .mar-t-1   {margin-top:    1rem;}
-  .mar-t-2   {margin-top:    2rem;}
-  .mar-t-4   {margin-top:    4rem;}
-  .mar-b-0x5 {margin-bottom: 0.5rem;}
-  .mar-b-1   {margin-bottom: 1rem;}
-  .mar-b-2   {margin-bottom: 2rem;}
-  .mar-b-4   {margin-bottom: 4rem;}
-  .mar-r-0x5 {margin-right:  0.5rem;}
-  .mar-r-1   {margin-right:  1rem;}
-  .mar-r-2   {margin-right:  2rem;}
-  .mar-r-4   {margin-right:  4rem;}
-  .mar-l-0x5 {margin-left:   0.5rem;}
-  .mar-l-1   {margin-left:   1rem;}
-  .mar-l-2   {margin-left:   2rem;}
-  .mar-l-4   {margin-left:   4rem;}
-  .mar-v-0x5 {@include mar-v(0.5rem);}
-  .mar-v-1   {@include mar-v(1rem);}
-  .mar-v-2   {@include mar-v(2rem);}
-  .mar-v-4   {@include mar-v(4rem);}
-  .mar-h-0x5 {@include mar-h(0.5rem);}
-  .mar-h-1   {@include mar-h(1rem);}
-  .mar-h-2   {@include mar-h(2rem);}
-  .mar-h-4   {@include mar-h(4rem);}
-  .mar-0x5   {margin: 0.5rem;}
-  .mar-1     {margin: 1rem;}
-  .mar-2     {margin: 2rem;}
-  .mar-4     {margin: 4rem;}
+  .mar-top-0x5 {margin-top:    0.5rem;}
+  .mar-top-1   {margin-top:    1rem;}
+  .mar-top-2   {margin-top:    2rem;}
+  .mar-top-4   {margin-top:    4rem;}
+  .mar-bot-0x5 {margin-bottom: 0.5rem;}
+  .mar-bot-1   {margin-bottom: 1rem;}
+  .mar-bot-2   {margin-bottom: 2rem;}
+  .mar-bot-4   {margin-bottom: 4rem;}
+  .mar-rig-0x5 {margin-right:  0.5rem;}
+  .mar-rig-1   {margin-right:  1rem;}
+  .mar-rig-2   {margin-right:  2rem;}
+  .mar-rig-4   {margin-right:  4rem;}
+  .mar-lef-0x5 {margin-left:   0.5rem;}
+  .mar-lef-1   {margin-left:   1rem;}
+  .mar-lef-2   {margin-left:   2rem;}
+  .mar-lef-4   {margin-left:   4rem;}
+  .mar-ver-0x5 {@include mar-ver(0.5rem);}
+  .mar-ver-1   {@include mar-ver(1rem);}
+  .mar-ver-2   {@include mar-ver(2rem);}
+  .mar-ver-4   {@include mar-ver(4rem);}
+  .mar-hor-0x5 {@include mar-hor(0.5rem);}
+  .mar-hor-1   {@include mar-hor(1rem);}
+  .mar-hor-2   {@include mar-hor(2rem);}
+  .mar-hor-4   {@include mar-hor(4rem);}
+  .mar-0x5     {margin: 0.5rem;}
+  .mar-1       {margin: 1rem;}
+  .mar-2       {margin: 2rem;}
+  .mar-4       {margin: 4rem;}
 }
 
 @mixin cls-pad {
-  .pad-t-0x5 {padding-top:    0.5rem;}
-  .pad-t-1   {padding-top:    1rem;}
-  .pad-t-2   {padding-top:    2rem;}
-  .pad-t-4   {padding-top:    4rem;}
-  .pad-b-0x5 {padding-bottom: 0.5rem;}
-  .pad-b-1   {padding-bottom: 1rem;}
-  .pad-b-2   {padding-bottom: 2rem;}
-  .pad-b-4   {padding-bottom: 4rem;}
-  .pad-r-0x5 {padding-right:  0.5rem;}
-  .pad-r-1   {padding-right:  1rem;}
-  .pad-r-2   {padding-right:  2rem;}
-  .pad-r-4   {padding-right:  4rem;}
-  .pad-l-0x5 {padding-left:   0.5rem;}
-  .pad-l-1   {padding-left:   1rem;}
-  .pad-l-2   {padding-left:   2rem;}
-  .pad-l-4   {padding-left:   4rem;}
-  .pad-v-0x5 {@include pad-v(0.5rem);}
-  .pad-v-1   {@include pad-v(1rem);}
-  .pad-v-2   {@include pad-v(2rem);}
-  .pad-v-4   {@include pad-v(4rem);}
-  .pad-h-0x5 {@include pad-h(0.5rem);}
-  .pad-h-1   {@include pad-h(1rem);}
-  .pad-h-2   {@include pad-h(2rem);}
-  .pad-h-4   {@include pad-h(4rem);}
-  .pad-0x5   {padding: 0.5rem;}
-  .pad-1     {padding: 1rem;}
-  .pad-2     {padding: 2rem;}
-  .pad-4     {padding: 4rem;}
+  .pad-top-0x5 {padding-top:    0.5rem;}
+  .pad-top-1   {padding-top:    1rem;}
+  .pad-top-2   {padding-top:    2rem;}
+  .pad-top-4   {padding-top:    4rem;}
+  .pad-bot-0x5 {padding-bottom: 0.5rem;}
+  .pad-bot-1   {padding-bottom: 1rem;}
+  .pad-bot-2   {padding-bottom: 2rem;}
+  .pad-bot-4   {padding-bottom: 4rem;}
+  .pad-rig-0x5 {padding-right:  0.5rem;}
+  .pad-rig-1   {padding-right:  1rem;}
+  .pad-rig-2   {padding-right:  2rem;}
+  .pad-rig-4   {padding-right:  4rem;}
+  .pad-lef-0x5 {padding-left:   0.5rem;}
+  .pad-lef-1   {padding-left:   1rem;}
+  .pad-lef-2   {padding-left:   2rem;}
+  .pad-lef-4   {padding-left:   4rem;}
+  .pad-ver-0x5 {@include pad-ver(0.5rem);}
+  .pad-ver-1   {@include pad-ver(1rem);}
+  .pad-ver-2   {@include pad-ver(2rem);}
+  .pad-ver-4   {@include pad-ver(4rem);}
+  .pad-hor-0x5 {@include pad-hor(0.5rem);}
+  .pad-hor-1   {@include pad-hor(1rem);}
+  .pad-hor-2   {@include pad-hor(2rem);}
+  .pad-hor-4   {@include pad-hor(4rem);}
+  .pad-0x5     {padding: 0.5rem;}
+  .pad-1       {padding: 1rem;}
+  .pad-2       {padding: 2rem;}
+  .pad-4       {padding: 4rem;}
 }
 
 @mixin cls-gap {
-  .gap-v-0x5 {@include gap-v(0.5rem);}
-  .gap-v-1   {@include gap-v(1rem);}
-  .gap-v-2   {@include gap-v(2rem);}
-  .gap-v-4   {@include gap-v(4rem);}
-  .gap-h-0x5 {@include gap-h(0.5rem);}
-  .gap-h-1   {@include gap-h(1rem);}
-  .gap-h-2   {@include gap-h(2rem);}
-  .gap-h-4   {@include gap-h(4rem);}
-  .gap-v-let {@include gap-v(1ex);}           // TODO better letter height.
-  .gap-h-let {@include gap-h(calc(1em / 4));} // TODO better letter width.
+  .gap-ver-0x5 {@include gap-ver(0.5rem);}
+  .gap-ver-1   {@include gap-ver(1rem);}
+  .gap-ver-2   {@include gap-ver(2rem);}
+  .gap-ver-4   {@include gap-ver(4rem);}
+  .gap-hor-0x5 {@include gap-hor(0.5rem);}
+  .gap-hor-1   {@include gap-hor(1rem);}
+  .gap-hor-2   {@include gap-hor(2rem);}
+  .gap-hor-4   {@include gap-hor(4rem);}
+  .gap-ver-let {@include gap-ver(1ex);}           // TODO better letter height.
+  .gap-hor-let {@include gap-hor(calc(1em / 4));} // TODO better letter width.
 }
 
-@mixin mar-v($val) {
+@mixin mar-ver($val) {
   margin-top:    $val;
   margin-bottom: $val;
 }
 
-@mixin mar-h($val) {
+@mixin mar-hor($val) {
   margin-left:  $val;
   margin-right: $val;
 }
 
-@mixin pad-v($val) {
+@mixin pad-ver($val) {
   padding-top:    $val;
   padding-bottom: $val;
 }
 
-@mixin pad-h($val) {
+@mixin pad-hor($val) {
   padding-left:  $val;
   padding-right: $val;
 }
 
-@mixin gap-v($val) {
+@mixin gap-ver($val) {
   > :not([hidden]) + :not([hidden]) {margin-top: $val;}
 }
 
-@mixin gap-h($val) {
+@mixin gap-hor($val) {
   > :not([hidden]) + :not([hidden]) {margin-left: $val;}
 }
 
 @mixin cls-pos {
-  .rel        {position: relative;}
-  .abs        {position: absolute;}
-  .static     {position: static;}
-  .fixed      {position: fixed;}
-  .sticky     {@include sticky;}
-  .mar-center {@include mar-center;}
+  .rel     {position: relative;}
+  .abs     {position: absolute;}
+  .fix     {position: fixed;}
+  .static  {position: static;}
+  .sticky  {@include sticky;}
+  .mar-cen {@include mar-cen;}
 }
 
 @mixin sticky {
@@ -395,21 +395,21 @@ Guideline.
   position: sticky;
 }
 
-@mixin mar-center {
+@mixin mar-cen {
   margin-left: auto;
   margin-right: auto;
 }
 
 @mixin cls-dis {
-  .block        {display: block;}
-  .inline       {display: inline;}
-  .inline-block {display: inline-block;}
-  .inline-table {display: inline-table;}
-  .table        {display: table;}
-  .table-row    {display: table-row;}
-  .table-col    {display: table-column;}
-  .table-cell   {display: table-cell;}
-  .list-item    {display: list-item;}
+  .block      {display: block;}
+  .inl        {display: inline;}
+  .inl-block  {display: inline-block;}
+  .inl-table  {display: inline-table;}
+  .table      {display: table;}
+  .table-row  {display: table-row;}
+  .table-col  {display: table-column;}
+  .table-cell {display: table-cell;}
+  .list-item  {display: list-item;}
 }
 
 @mixin cls-wid {
@@ -445,21 +445,22 @@ Guideline.
 }
 
 @mixin cls-cur {
-  .cur-auto          {cursor: auto;}
-  .cur-move          {cursor: move;}
-  .cur-text          {cursor: text;}
-  .cur-wait          {cursor: wait;}
-  .cur-help          {cursor: help;}
-  .cur-default       {cursor: default;}
-  .cur-pointer       {cursor: pointer;}
-  .cur-zoom-in       {cursor: zoom-in;}
-  .cur-progress      {cursor: progress;}
-  .cur-crosshair     {cursor: crosshair;}
-  .cur-not-allowed   {cursor: not-allowed;}
-  .no-pointer-styles {pointer-events: none;}
-  .no-pointer-events {pointer-events: none;}
+  .cur-auto  {cursor: auto;}
+  .cur-move  {cursor: move;}
+  .cur-text  {cursor: text;}
+  .cur-wait  {cursor: wait;}
+  .cur-help  {cursor: help;}
+  .cur-def   {cursor: default;}
+  .cur-point {cursor: pointer;}
+  .cur-zoom  {cursor: zoom-in;}
+  .cur-pro   {cursor: progress;}
+  .cur-cross {cursor: crosshair;}
+  .cur-not   {cursor: not-allowed;}
+  .cur-none  {pointer-events: none;}
 }
 
+// ".*-hidden" is unabbreviated for consistency with "[hidden]".
+// Others are unabbreviated for consistency with ".vis-hidden".
 @mixin cls-vis {
   .vis-hidden   {visibility: hidden;}
   .vis-visible  {visibility: visible;}
@@ -467,32 +468,33 @@ Guideline.
 }
 
 @mixin cls-table {
-  .table-fixed {table-layout: fixed;}
+  .table-fix {table-layout: fixed;}
 }
 
-@mixin cls-text-align {
-  .text-left    {text-align: left;}
-  .text-right   {text-align: right;}
-  .text-center  {text-align: center;}
-  .text-justify {text-align: justify;}
+// TODO: abbreviate "center"?
+@mixin cls-text-ali {
+  .text-lef {text-align: left;}
+  .text-rig {text-align: right;}
+  .text-cen {text-align: center;}
+  .text-jus {text-align: justify;}
 }
 
-@mixin cls-valign {
-  .valign-top         {vertical-align: top;}
-  .valign-middle      {vertical-align: middle;}
-  .valign-bottom      {vertical-align: bottom;}
-  .valign-baseline    {vertical-align: baseline;}
-  .valign-sub         {vertical-align: sub;}
-  .valign-super       {vertical-align: super;}
-  .valign-text-top    {vertical-align: text-top;}
-  .valign-text-bottom {vertical-align: text-bottom;}
+@mixin cls-vali {
+  .vali-top      {vertical-align: top;}
+  .vali-mid      {vertical-align: middle;}
+  .vali-bot      {vertical-align: bottom;}
+  .vali-bas      {vertical-align: baseline;}
+  .vali-sub      {vertical-align: sub;}
+  .vali-sup      {vertical-align: super;}
+  .vali-text-top {vertical-align: text-top;}
+  .vali-text-bot {vertical-align: text-bottom;}
 }
 
 @mixin cls-dec {
-  .dec-none         {text-decoration: none;}
-  .dec-overline     {text-decoration: overline;}
-  .dec-underline    {text-decoration: underline;}
-  .dec-line-through {text-decoration: line-through;}
+  .dec-none   {text-decoration: none;}
+  .dec-over   {text-decoration: overline;}
+  .dec-under  {text-decoration: underline;}
+  .dec-strike {text-decoration: line-through;}
 }
 
 @mixin cls-trans {
@@ -511,9 +513,7 @@ Guideline.
 }
 
 @mixin cls-ellipsis {
-  .ellipsis, .ellipsis * {
-    @include ellipsis;
-  }
+  .ellipsis, .ellipsis * {@include ellipsis;}
 }
 
 // Correct usage requires two selectors, see `cls-ellipsis`.
@@ -524,26 +524,34 @@ Guideline.
 }
 
 @mixin cls-wei {
-  .wei-normal   {font-weight: normal;}
-  .wei-bold     {font-weight: bold;}
-  .wei-semibold {font-weight: 500;}
-  .wei-bolder   {font-weight: bolder;}
-  .wei-lighter  {font-weight: lighter;}
-  .wei-100      {font-weight: 100;}
-  .wei-200      {font-weight: 200;}
-  .wei-300      {font-weight: 300;}
-  .wei-400      {font-weight: 400;}
-  .wei-500      {font-weight: 500;}
-  .wei-600      {font-weight: 600;}
-  .wei-700      {font-weight: 700;}
-  .wei-800      {font-weight: 800;}
-  .wei-900      {font-weight: 900;}
+  .wei-normal  {font-weight: normal;}
+  .wei-bold    {font-weight: bold;}
+  .wei-semi    {font-weight: 500;}
+  .wei-bolder  {font-weight: bolder;}
+  .wei-lighter {font-weight: lighter;}
+  .wei-100     {font-weight: 100;}
+  .wei-200     {font-weight: 200;}
+  .wei-300     {font-weight: 300;}
+  .wei-400     {font-weight: 400;}
+  .wei-500     {font-weight: 500;}
+  .wei-600     {font-weight: 600;}
+  .wei-700     {font-weight: 700;}
+  .wei-800     {font-weight: 800;}
+  .wei-900     {font-weight: 900;}
+
+  // Tentative.
+  .bold   {@extend .wei-bold;}
+  .bolder {@extend .wei-bolder;}
 }
 
 @mixin cls-font {
   .font-normal  {font-style: normal;}
   .font-italic  {font-style: italic;}
   .font-oblique {font-style: oblique;}
+
+  // Tentative.
+  .italic  {@extend .font-italic;}
+  .oblique {@extend .font-oblique;}
 }
 
 @mixin cls-round {
@@ -551,22 +559,22 @@ Guideline.
 }
 
 @mixin cls-bg {
-  .bg-center  {@include bg-center;}
-  .bg-cover   {@include bg-cover;}
-  .bg-contain {@include bg-contain;}
+  .bg-cen {@include bg-cen;}
+  .bg-cov {@include bg-cov;}
+  .bg-con {@include bg-con;}
 }
 
-@mixin bg-center {
+@mixin bg-cen {
   background-position: center center;
   background-repeat: no-repeat;
 }
 
-@mixin bg-cover {
-  @include bg-center;
+@mixin bg-cov {
+  @include bg-cen;
   background-size: cover;
 }
 
-@mixin bg-contain {
-  @include bg-center;
+@mixin bg-con {
+  @include bg-cen;
   background-size: contain;
 }
