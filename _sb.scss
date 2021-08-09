@@ -19,7 +19,7 @@ Guideline.
   @include cls-pos;
   @include cls-dis;
   @include cls-wid;
-  @include cls-hig;
+  @include cls-hei;
   @include cls-over;
   @include cls-cur;
   @include cls-vis;
@@ -420,12 +420,12 @@ Guideline.
   .wid-100vw {width: 100vw;}
 }
 
-@mixin cls-hig {
-  .hig-25p   {height: 25%;}
-  .hig-50p   {height: 50%;}
-  .hig-75p   {height: 75%;}
-  .hig-100p  {height: 100%;}
-  .hig-100vh {height: 100vh;}
+@mixin cls-hei {
+  .hei-25p   {height: 25%;}
+  .hei-50p   {height: 50%;}
+  .hei-75p   {height: 75%;}
+  .hei-100p  {height: 100%;}
+  .hei-100vh {height: 100vh;}
 }
 
 @mixin cls-over {
