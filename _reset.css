@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5, h6 {font-size: inherit;}
 
 /* cursors */
 
-html, :-webkit-any-link {cursor: default;}
+html {cursor: default;}
 
 /* button */
 

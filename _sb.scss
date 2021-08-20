@@ -108,65 +108,39 @@ Guideline.
   .flex-noshrink {@include flex-shrink(0);}
 }
 
-@mixin dis-flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
+@mixin dis-flex     {display: flex;}
+@mixin dis-inl-flex {display: inline-flex;}
 
-@mixin dis-inl-flex {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-}
+@mixin flex-dir-row {flex-direction: row;}
+@mixin flex-dir-col {flex-direction: column;}
 
-@mixin flex-dir-row {
-  -webkit-box-orient:    horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction:    row;
-  flex-direction:        row;
-}
+@mixin flex-jus-sta {justify-content: flex-start;}
+@mixin flex-jus-cen {justify-content: center;}
+@mixin flex-jus-end {justify-content: flex-end;}
+@mixin flex-jus-aro {justify-content: space-around;}
+@mixin flex-jus-bet {justify-content: space-between;}
 
-@mixin flex-dir-col {
-  -webkit-box-orient:    vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction:    column;
-  flex-direction:        column;
-}
+@mixin flex-ali-sta {align-items: flex-start;}
+@mixin flex-ali-cen {align-items: center;}
+@mixin flex-ali-end {align-items: flex-end;}
+@mixin flex-ali-str {align-items: stretch;}
+
+@mixin ali-self-sta {align-self: flex-start;}
+@mixin ali-self-cen {align-self: center;}
+@mixin ali-self-end {align-self: flex-end;}
+@mixin ali-self-str {align-self: stretch;}
+
+@mixin flex($val)        {flex: $val;}
+@mixin flex-shrink($val) {flex-shrink: $val;}
+@mixin flex-wrap($val)   {flex-wrap: $val;}
+@mixin flex-nowrap       {@include flex-wrap(nowrap);}
+
+@mixin ord($val) {order: $val;}
 
 @mixin flex-dir($val) {
   @if      $val == row {@include flex-dir-row;}
   @else if $val == col {@include flex-dir-col;}
   @else {@error 'unknown flex-direction: #{$val}';}
-}
-
-@mixin flex-jus-sta {
-  -webkit-box-pack: start;
-  -ms-flex-pack:    start;
-  justify-content:  flex-start;
-}
-
-@mixin flex-jus-cen {
-  -webkit-box-pack: center;
-  -ms-flex-pack:    center;
-  justify-content:  center;
-}
-
-@mixin flex-jus-end {
-  -webkit-box-pack: end;
-  -ms-flex-pack:    end;
-  justify-content:  flex-end;
-}
-
-@mixin flex-jus-aro {
-  -ms-flex-pack:   distribute;
-  justify-content: space-around;
-}
-
-@mixin flex-jus-bet {
-  -webkit-box-pack: justify;
-  -ms-flex-pack:    justify;
-  justify-content:  space-between;
 }
 
 @mixin flex-jus($val) {
@@ -176,30 +150,6 @@ Guideline.
   @else if $val == aro {@include flex-jus-aro;}
   @else if $val == bet {@include flex-jus-bet;}
   @else {@error 'unknown flex-jus (justify-content) property: #{$val}';}
-}
-
-@mixin flex-ali-sta {
-  -webkit-box-align: start;
-  -ms-flex-align:    start;
-  align-items:       flex-start;
-}
-
-@mixin flex-ali-cen {
-  -webkit-box-align: center;
-  -ms-flex-align:    center;
-  align-items:       center;
-}
-
-@mixin flex-ali-end {
-  -webkit-box-align: end;
-  -ms-flex-align:    end;
-  align-items:       flex-end;
-}
-
-@mixin flex-ali-str {
-  -webkit-box-align: stretch;
-  -ms-flex-align:    stretch;
-  align-items:       stretch;
 }
 
 @mixin flex-ali($val) {
@@ -216,60 +166,12 @@ Guideline.
   @if $ali != none {@include flex-ali($ali);}
 }
 
-@mixin flex-wrap($val: wrap) {
-  -ms-flex-wrap: $val;
-  flex-wrap:     $val;
-}
-
-@mixin flex-nowrap {
-  @include flex-wrap(nowrap);
-}
-
-@mixin flex($val) {
-  -webkit-box-flex: $val;
-  -ms-flex:         $val;
-  flex:             $val;
-}
-
-@mixin ali-self-sta {
-  -ms-flex-item-align: start;
-  align-self:          flex-start;
-}
-
-@mixin ali-self-cen {
-  -ms-flex-item-align: center;
-  -ms-grid-row-align:  center;
-  align-self:          center;
-}
-
-@mixin ali-self-end {
-  -ms-flex-item-align: end;
-  align-self:          flex-end;
-}
-
-@mixin ali-self-str {
-  -ms-flex-item-align: stretch;
-  -ms-grid-row-align:  stretch;
-  align-self:          stretch;
-}
-
 @mixin ali-self($val) {
   @if      $val == sta {@include ali-self-sta;}
   @else if $val == cen {@include ali-self-cen;}
   @else if $val == end {@include ali-self-end;}
   @else if $val == str {@include ali-self-str;}
   @else {@error 'unknown ali-self (align-self) property: #{$val}';}
-}
-
-@mixin flex-shrink($val) {
-  -ms-flex-negative: $val;
-  flex-shrink:       $val;
-}
-
-@mixin ord($val) {
-  -webkit-box-ordinal-group: $val + 1;
-  -ms-flex-order:            $val;
-  order:                     $val;
 }
 
 @mixin cls-spacing {
@@ -497,6 +399,7 @@ Guideline.
   .dec-strike {text-decoration: line-through;}
 }
 
+// TODO better abbr; "tetran"? too long!
 @mixin cls-trans {
   .trans-none  {text-transform: none;}
   .trans-upper {text-transform: uppercase;}
@@ -504,6 +407,7 @@ Guideline.
   .trans-cap   {text-transform: capitalize;}
 }
 
+// TODO better abbr.
 @mixin cls-wspace {
   .wspace-pre      {white-space: pre;}
   .wspace-normal   {white-space: normal;}
