@@ -315,6 +315,8 @@ Guideline.
 }
 
 @mixin cls-wid {
+  .wid-fit   {width: fit-content;}
+  .wid-auto  {width: auto;}
   .wid-25p   {width: 25%;}
   .wid-50p   {width: 50%;}
   .wid-75p   {width: 75%;}
