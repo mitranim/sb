@@ -1,6 +1,6 @@
 ## Overview
 
-This is a different type of style library:
+Short for **S**tyle-**B**ase. This is a different type of style library:
 
 * No fancy visuals, just a blank canvas and convenient building blocks.
 * Must be copied and pasted; will never break your app with a "minor" update.
@@ -35,8 +35,8 @@ This must be **copied and pasted** into your application. CSS libraries, even se
 Requires SCSS. Names are unprefixed; import via `@use` for namespacing.
 
 ```scss
-@use './style-base/reset';
-@use './style-base/sb';
+@use './sb/reset';
+@use './sb/sb';
 
 @include sb.all;
 ```
