@@ -181,39 +181,39 @@ Guideline.
 }
 
 @mixin cls-mar {
-  .mar-cen     {@include mar-cen;}
-  .mar-top-aut {margin-top:    auto;}
-  .mar-top-0x5 {margin-top:    0.5rem;}
-  .mar-top-1   {margin-top:    1rem;}
-  .mar-top-2   {margin-top:    2rem;}
-  .mar-top-4   {margin-top:    4rem;}
-  .mar-bot-aut {margin-bottom: auto;}
-  .mar-bot-0x5 {margin-bottom: 0.5rem;}
-  .mar-bot-1   {margin-bottom: 1rem;}
-  .mar-bot-2   {margin-bottom: 2rem;}
-  .mar-bot-4   {margin-bottom: 4rem;}
-  .mar-rig-aut {margin-right:  auto;}
-  .mar-rig-0x5 {margin-right:  0.5rem;}
-  .mar-rig-1   {margin-right:  1rem;}
-  .mar-rig-2   {margin-right:  2rem;}
-  .mar-rig-4   {margin-right:  4rem;}
-  .mar-lef-aut {margin-left:   auto;}
-  .mar-lef-0x5 {margin-left:   0.5rem;}
-  .mar-lef-1   {margin-left:   1rem;}
-  .mar-lef-2   {margin-left:   2rem;}
-  .mar-lef-4   {margin-left:   4rem;}
-  .mar-ver-0x5 {@include mar-ver(0.5rem);}
-  .mar-ver-1   {@include mar-ver(1rem);}
-  .mar-ver-2   {@include mar-ver(2rem);}
-  .mar-ver-4   {@include mar-ver(4rem);}
-  .mar-hor-0x5 {@include mar-hor(0.5rem);}
-  .mar-hor-1   {@include mar-hor(1rem);}
-  .mar-hor-2   {@include mar-hor(2rem);}
-  .mar-hor-4   {@include mar-hor(4rem);}
-  .mar-0x5     {margin: 0.5rem;}
-  .mar-1       {margin: 1rem;}
-  .mar-2       {margin: 2rem;}
-  .mar-4       {margin: 4rem;}
+  .mar-cen      {@include mar-cen;}
+  .mar-top-auto {margin-top:    auto;}
+  .mar-top-0x5  {margin-top:    0.5rem;}
+  .mar-top-1    {margin-top:    1rem;}
+  .mar-top-2    {margin-top:    2rem;}
+  .mar-top-4    {margin-top:    4rem;}
+  .mar-bot-auto {margin-bottom: auto;}
+  .mar-bot-0x5  {margin-bottom: 0.5rem;}
+  .mar-bot-1    {margin-bottom: 1rem;}
+  .mar-bot-2    {margin-bottom: 2rem;}
+  .mar-bot-4    {margin-bottom: 4rem;}
+  .mar-rig-auto {margin-right:  auto;}
+  .mar-rig-0x5  {margin-right:  0.5rem;}
+  .mar-rig-1    {margin-right:  1rem;}
+  .mar-rig-2    {margin-right:  2rem;}
+  .mar-rig-4    {margin-right:  4rem;}
+  .mar-lef-auto {margin-left:   auto;}
+  .mar-lef-0x5  {margin-left:   0.5rem;}
+  .mar-lef-1    {margin-left:   1rem;}
+  .mar-lef-2    {margin-left:   2rem;}
+  .mar-lef-4    {margin-left:   4rem;}
+  .mar-ver-0x5  {@include mar-ver(0.5rem);}
+  .mar-ver-1    {@include mar-ver(1rem);}
+  .mar-ver-2    {@include mar-ver(2rem);}
+  .mar-ver-4    {@include mar-ver(4rem);}
+  .mar-hor-0x5  {@include mar-hor(0.5rem);}
+  .mar-hor-1    {@include mar-hor(1rem);}
+  .mar-hor-2    {@include mar-hor(2rem);}
+  .mar-hor-4    {@include mar-hor(4rem);}
+  .mar-0x5      {margin: 0.5rem;}
+  .mar-1        {margin: 1rem;}
+  .mar-2        {margin: 2rem;}
+  .mar-4        {margin: 4rem;}
 }
 
 @mixin mar-cen {

@@ -1,5 +1,7 @@
 /* https://github.com/mitranim/sb */
 
+/* Whitespace */
+
 *, ::before, ::after {box-sizing: border-box;}
 * {margin: 0; padding: 0;}
 
@@ -12,6 +14,8 @@
   text-transform: inherit;
 }
 
+b, strong {font-weight: bolder;}
+
 /*
 Fixed line height reduces the jumping that happens when loading a webfont.
 `ex` ≈ height of lowercase letter. This property must be set directly on an
@@ -22,7 +26,7 @@ html {font-family: sans-serif;}
 code, key, pre {font-family: monospace;}
 h1, h2, h3, h4, h5, h6 {font-size: inherit;}
 
-/* cursors */
+/* Cursors */
 
 html {cursor: default;}
 
@@ -34,13 +38,15 @@ button {
   color: inherit;
   background-color: inherit;
   border-radius: 0;
+  text-align: unset;
+  display: block;
 }
 
 button > * {vertical-align: middle;}
 
 [role=button] {cursor: pointer;}
 
-/* inputs */
+/* Inputs */
 
 input, textarea {
   border: none;
@@ -97,7 +103,7 @@ hr::before {
   border-top: 1px dashed;
 }
 
-/* anchor */
+/* Anchors */
 
 /* The user is responsible for sensible anchor decorations. */
 a {
@@ -111,18 +117,11 @@ a[href] {cursor: pointer;}
 
 ul {list-style-type: disc;}
 
-/* Questionable. */
-/* ul, ol {list-style-position: inside;} */
-
-/* monospace */
+/* Monospace */
 
 pre {white-space: pre-wrap;}
 
-/* Typography */
-
-b, strong {font-weight: bolder;}
-
-/* table */
+/* Table */
 
 /* Blink centers "th" by default. */
 th {text-align: initial;}
@@ -135,4 +134,5 @@ template {display: none !important;}
 img {max-width: 100%;}
 details > summary {cursor: pointer;}
 details > summary * {display: inline;}
-fieldset {border: none;}
+fieldset {border-style: none;}
+dialog {border-style: none;}
