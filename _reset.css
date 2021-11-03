@@ -92,16 +92,6 @@ hr {
   border: none;
 }
 
-/*
-Putting border on a pseudoelement rather than the tag allows padding to affect
-the width.
-*/
-hr::before {
-  content: '';
-  display: block;
-  border-top: 1px dashed;
-}
-
 /* Anchors */
 
 /* The user is responsible for sensible anchor decorations. */

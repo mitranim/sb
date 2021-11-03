@@ -34,6 +34,7 @@ Guideline.
   @include cls-font;
   @include cls-round;
   @include cls-bg;
+  @include cls-hr;
 }
 
 @mixin cls-flex {
@@ -487,4 +488,19 @@ Guideline.
 @mixin bg-con {
   @include bg-cen;
   background-size: contain;
+}
+
+@mixin cls-hr {
+  .hr {@include hr(1px, solid, lightgray);}
+}
+
+@mixin hr($width: none, $style: none, $color: none) {
+  // Using an inner pseudoelement allows parent padding to affect the width.
+  &::before {
+    content: '';
+    display: block;
+    @if $width != none {border-top-width: $width;}
+    @if $style != none {border-top-style: $style;}
+    @if $color != none {border-top-color: $color;}
+  }
 }
