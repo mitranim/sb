@@ -109,6 +109,7 @@ hr::before {
 a {
   text-decoration: none;
   color: inherit;
+  display: block;
 }
 
 a[href] {cursor: pointer;}
@@ -130,7 +131,7 @@ th {text-align: initial;}
 
 [hidden]:not(:root) {display: none;}
 template {display: none !important;}
-[disabled] {pointer-events: none; opacity: 0.7;}
+[disabled] {cursor: not-allowed; opacity: 0.7;}
 img {max-width: 100%;}
 details > summary {cursor: pointer;}
 details > summary * {display: inline;}
