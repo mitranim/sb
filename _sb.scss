@@ -287,11 +287,11 @@ Guideline.
 }
 
 @mixin gap-ver($val) {
-  > :not([hidden]) + :not([hidden]) {margin-top: $val;}
+  > :not(:first-child, [hidden]) {margin-top: $val;}
 }
 
 @mixin gap-hor($val) {
-  > :not([hidden]) + :not([hidden]) {margin-left: $val;}
+  > :not(:first-child, [hidden]) {margin-left: $val;}
 }
 
 @mixin cls-pos {

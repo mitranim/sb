@@ -84,6 +84,8 @@ input[type=number]::-webkit-inner-spin-button {-webkit-appearance: none;}
 input[type=number]::-webkit-outer-spin-button {-webkit-appearance: none;}
 input[type=number] {-moz-appearance: none;}
 
+select {cursor: pointer;}
+
 /* hr */
 
 hr {
@@ -99,8 +101,6 @@ a {
   text-decoration: none;
   color: inherit;
 }
-
-a[href] {cursor: pointer;}
 
 /* Lists */
 
