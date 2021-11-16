@@ -3,7 +3,6 @@
 Short for **S**tyle-**B**ase. This is a different type of style library:
 
 * No fancy visuals, just a blank canvas and convenient building blocks.
-* Must be copied and pasted; will never break your app with a "minor" update.
 * Everything is opt-in.
 * Very small, very simple.
 
@@ -30,7 +29,7 @@ The idea of reusable elements is nice, but it doesn't work well for CSS. The ide
 
 ## Usage
 
-This must be **copied and pasted** into your application. CSS libraries, even semantically versioned, are way too brittle. There's no such thing as a non-breaking change in CSS, and the application needs _full control_ over the code.
+Either use as a Git submodule, or copy-paste into your app. CSS libraries, even semantically versioned, are way too brittle. There's no such thing as a non-breaking change in CSS. The version must be locked down to the exact commit. The application may also need _full control_ over the code.
 
 Requires SCSS. Names are unprefixed; import via `@use` for namespacing.
 
