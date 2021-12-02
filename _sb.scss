@@ -295,11 +295,31 @@ Guideline.
 }
 
 @mixin cls-pos {
-  .rel     {position: relative;}
-  .abs     {position: absolute;}
-  .fix     {position: fixed;}
-  .static  {position: static;}
-  .sticky  {@include sticky;}
+  .rel    {position: relative;}
+  .abs    {position: absolute;}
+  .fix    {position: fixed;}
+  .static {position: static;}
+  .sticky {@include sticky;}
+
+  .top {top:    0;}
+  .rig {right:  0;}
+  .bot {bottom: 0;}
+  .lef {left:   0;}
+
+  .top-50p {top:    50%;}
+  .rig-50p {right:  50%;}
+  .bot-50p {bottom: 50%;}
+  .lef-50p {left:   50%;}
+
+  .cen-ver {
+    @extend .top-50p;
+    transform: translateY(-50%);
+  }
+
+  .cen-hor {
+    @extend .lef-50p;
+    transform: translateX(-50%);
+  }
 }
 
 @mixin sticky {
