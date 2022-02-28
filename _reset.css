@@ -43,7 +43,7 @@ button {
 
 button > * {vertical-align: middle;}
 
-[role=button] {cursor: pointer;}
+[role=button], [role=link] {cursor: pointer;}
 
 /* Inputs */
 
