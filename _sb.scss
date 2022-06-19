@@ -107,6 +107,7 @@ Guideline.
   .ord-9 {@include ord(9);}
 
   .flex-noshrink {@include flex-shrink(0);}
+  .flex-nowrap {@include flex-nowrap;}
 }
 
 @mixin dis-flex     {display: flex;}
@@ -286,13 +287,8 @@ Guideline.
   padding-right: $val;
 }
 
-@mixin gap-ver($val) {
-  > :not(:first-child, [hidden]) {margin-top: $val;}
-}
-
-@mixin gap-hor($val) {
-  > :not(:first-child, [hidden]) {margin-left: $val;}
-}
+@mixin gap-ver($val) {> :not([hidden]) ~ :not([hidden]) {margin-top: $val;}}
+@mixin gap-hor($val) {> :not([hidden]) ~ :not([hidden]) {margin-left: $val;}}
 
 @mixin cls-pos {
   .rel    {position: relative;}
