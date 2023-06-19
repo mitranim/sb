@@ -2,8 +2,8 @@
 
 /* Whitespace */
 
-*, ::before, ::after {box-sizing: border-box;}
-* {margin: 0; padding: 0;}
+*, ::before, ::after {box-sizing: border-box}
+* {margin: 0; padding: 0}
 
 /* Typography */
 
@@ -14,21 +14,14 @@
   text-transform: inherit;
 }
 
-b, strong {font-weight: bolder;}
-
-/*
-Fixed line height reduces the jumping that happens when loading a webfont.
-`ex` ≈ height of lowercase letter. This property must be set directly on an
-element rather than inherited, hence the `*`.
-*/
-* {line-height: 2.8ex;}
-html {font-family: sans-serif;}
-code, key, pre {font-family: monospace;}
-h1, h2, h3, h4, h5, h6 {font-size: inherit;}
+b, strong {font-weight: bolder}
+html {font-family: sans-serif}
+code, key, pre {font-family: monospace}
+h1, h2, h3, h4, h5, h6 {font-size: inherit}
 
 /* Cursors */
 
-html {cursor: default;}
+html {cursor: default}
 
 /* button */
 
@@ -41,9 +34,9 @@ button {
   text-align: unset;
 }
 
-button > * {vertical-align: middle;}
+button > * {vertical-align: middle}
 
-[role=button], [role=link] {cursor: pointer;}
+[role=button], [role=link] {cursor: pointer}
 
 /* Inputs */
 
@@ -53,7 +46,7 @@ input, textarea {
   background-color: inherit;
 }
 
-textarea {resize: none;}
+textarea {resize: none}
 
 ::placeholder {
   color: currentColor;
@@ -72,7 +65,7 @@ input[type=file] {
 }
 
 /*
-In Chrome (version 63 and possibly others), radio inputs shrink, while radio
+In Chrome (version 63 and possibly others), radio inputs shrink, while other
 inputs don't.
 */
 input[type=radio] {
@@ -80,11 +73,11 @@ input[type=radio] {
   flex-shrink: 0;
 }
 
-input[type=number]::-webkit-inner-spin-button {-webkit-appearance: none;}
-input[type=number]::-webkit-outer-spin-button {-webkit-appearance: none;}
-input[type=number] {-moz-appearance: none;}
+input[type=number]::-webkit-inner-spin-button {-webkit-appearance: none}
+input[type=number]::-webkit-outer-spin-button {-webkit-appearance: none}
+input[type=number] {-moz-appearance: none}
 
-select {cursor: pointer;}
+select {cursor: pointer}
 
 /* hr */
 
@@ -102,26 +95,36 @@ a {
   color: inherit;
 }
 
+:any-link {cursor: pointer}
+
 /* Lists */
 
-ul {list-style-type: disc;}
+ul {list-style-type: disc}
 
 /* Monospace */
 
-pre {white-space: pre-wrap;}
+pre {white-space: pre-wrap}
 
 /* Table */
 
 /* Blink centers "th" by default. */
-th {text-align: initial;}
+th {text-align: initial}
 
 /* Misc */
 
-[hidden]:not(:root) {display: none;}
-template {display: none !important;}
-[disabled] {cursor: not-allowed;}
-img {max-width: 100%;}
-details > summary {cursor: pointer;}
-details > summary * {display: inline;}
-fieldset {border-style: none;}
-dialog {border-style: none;}
+/*
+This rule is built into user agent stylesheets, but with low specificity. We
+redefine it with higher specificity to allow it to take priority over CSS
+classes that define the `display` property. The additional `:not` raises the
+specificity over any regular class or attribute. We also provide the mixin
+`dis-hidden` for CSS components that need a copy of this rule with an even
+higher specificity.
+*/
+[hidden]:not(:root) {display: none}
+
+[disabled] {cursor: not-allowed}
+img {max-width: 100%}
+details > summary {cursor: pointer}
+details > summary * {display: inline}
+fieldset {border-style: none}
+dialog {border-style: none}
