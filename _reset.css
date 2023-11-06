@@ -101,6 +101,16 @@ a {
 
 ul {list-style-type: disc}
 
+/*
+Motivation: the default is `position: outside` which is incompatible with
+padding. For example, you may have a list inside a bordered container, and
+tell it to have `padding: 1rem` to space out from the border; by default,
+list indicators would clip into the padding whitespace without being spaced
+out from the border, defeating the author's intent. `position: inside` avoids
+such problems and thus seems like a better default.
+*/
+ul, ol {list-style-position: inside}
+
 /* Monospace */
 
 pre {white-space: pre-wrap}

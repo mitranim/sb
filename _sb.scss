@@ -13,7 +13,10 @@ Guideline.
     and then if possible, as a class.
 */
 
-@mixin all {@include cls}
+@mixin all {
+  @include cls;
+  @include global;
+}
 
 @mixin cls {
   @include cls-flex;
@@ -38,6 +41,11 @@ Guideline.
   @include cls-bg;
   @include cls-obj;
   @include cls-hr;
+}
+
+@mixin global {
+  ul, ol {@include list-nested}
+  ul {@include list-alternating}
 }
 
 @mixin cls-flex {
@@ -583,7 +591,9 @@ Guideline.
 }
 
 @mixin hr($width: '', $style: '') {
-  // Using an inner pseudoelement allows parent padding to affect the width.
+  // Using an inner pseudoelement means that the visible part is considered
+  // inner content of `<hr>`, affected by its padding. This can be convenient
+  // for styling.
   &::before {
     content: '';
     display: block;
@@ -591,4 +601,19 @@ Guideline.
     @if $width != '' {border-top-width: $width}
     @if $style != '' {border-top-style: $style}
   }
+}
+
+@mixin list-nested($wid: 1rem) {
+  & & {padding-left: $wid}
+  & & & {padding-left: $wid * 2}
+  & & & & {padding-left: $wid * 3}
+  & & & & & {padding-left: $wid * 4}
+}
+
+@mixin list-alternating($type0: disc, $type1: circle) {
+  list-style-type: $type0;
+  & & {list-style-type: $type1}
+  & & & {list-style-type: $type0}
+  & & & & {list-style-type: $type1}
+  & & & & & {list-style-type: $type0}
 }
