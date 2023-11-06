@@ -603,12 +603,7 @@ Guideline.
   }
 }
 
-@mixin list-nested($wid: 1rem) {
-  & & {padding-left: $wid}
-  & & & {padding-left: $wid * 2}
-  & & & & {padding-left: $wid * 3}
-  & & & & & {padding-left: $wid * 4}
-}
+@mixin list-nested($wid: 1rem) {& & {padding-left: $wid}}
 
 @mixin list-alternating($type0: disc, $type1: circle) {
   list-style-type: $type0;
@@ -616,4 +611,5 @@ Guideline.
   & & & {list-style-type: $type0}
   & & & & {list-style-type: $type1}
   & & & & & {list-style-type: $type0}
+  & & & & & & {list-style-type: $type1}
 }
