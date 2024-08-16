@@ -49,11 +49,11 @@ Guideline.
 }
 
 @mixin cls-flex {
-  .flex     {@include dis-flex}
-  .inl-flex {@include dis-inl-flex}
-  .row      {@include flex-dir(row)}
-  .col      {@include flex-dir(col)}
-  .wrap     {@include flex-wrap(wrap)}
+  .flex     {display: flex}
+  .inl-flex {display: inline-flex}
+  .row      {flex-direction: row}
+  .col      {flex-direction: column}
+  .wrap     {flex-wrap: wrap}
 
   .row-sta-sta {@include flex-layout(row, sta, sta)}
   .row-sta-cen {@include flex-layout(row, sta, cen)}
@@ -96,98 +96,69 @@ Guideline.
   .col-bet-end {@include flex-layout(col, bet, end)}
   .col-bet-str {@include flex-layout(col, bet, str)}
 
-  .flex-0 {@include flex(0 0)}
-  .flex-1 {@include flex(1 0)}
-  .flex-2 {@include flex(2 0)}
-  .flex-3 {@include flex(3 0)}
-  .flex-4 {@include flex(4 0)}
-  .flex-5 {@include flex(5 0)}
-  .flex-6 {@include flex(6 0)}
-  .flex-7 {@include flex(7 0)}
-  .flex-8 {@include flex(8 0)}
-  .flex-9 {@include flex(9 0)}
+  .flex-0 {flex: 0 0}
+  .flex-1 {flex: 1 0}
+  .flex-2 {flex: 2 0}
+  .flex-3 {flex: 3 0}
+  .flex-4 {flex: 4 0}
+  .flex-5 {flex: 5 0}
+  .flex-6 {flex: 6 0}
+  .flex-7 {flex: 7 0}
+  .flex-8 {flex: 8 0}
+  .flex-9 {flex: 9 0}
 
-  .ord-0 {@include ord(0)}
-  .ord-1 {@include ord(1)}
-  .ord-2 {@include ord(2)}
-  .ord-3 {@include ord(3)}
-  .ord-4 {@include ord(4)}
-  .ord-5 {@include ord(5)}
-  .ord-6 {@include ord(6)}
-  .ord-7 {@include ord(7)}
-  .ord-8 {@include ord(8)}
-  .ord-9 {@include ord(9)}
+  .ord-0 {order: 0}
+  .ord-1 {order: 1}
+  .ord-2 {order: 2}
+  .ord-3 {order: 3}
+  .ord-4 {order: 4}
+  .ord-5 {order: 5}
+  .ord-6 {order: 6}
+  .ord-7 {order: 7}
+  .ord-8 {order: 8}
+  .ord-9 {order: 9}
 
-  .flex-noshrink {@include flex-shrink(0)}
+  .flex-noshrink {flex-shrink: 0}
 }
 
 // Allows CSS components to increase the specificity of the default `[hidden]`
 // rule when required.
 @mixin dis-hidden {&[hidden] {display: none}}
 
-@mixin dis-flex     {display: flex}
-@mixin dis-inl-flex {display: inline-flex}
-
-@mixin flex-dir-row {flex-direction: row}
-@mixin flex-dir-col {flex-direction: column}
-
-@mixin flex-jus-sta {justify-content: flex-start}
-@mixin flex-jus-cen {justify-content: center}
-@mixin flex-jus-end {justify-content: flex-end}
-@mixin flex-jus-aro {justify-content: space-around}
-@mixin flex-jus-bet {justify-content: space-between}
-
-@mixin flex-ali-sta {align-items: flex-start}
-@mixin flex-ali-cen {align-items: center}
-@mixin flex-ali-end {align-items: flex-end}
-@mixin flex-ali-str {align-items: stretch}
-
-@mixin ali-self-sta {align-self: flex-start}
-@mixin ali-self-cen {align-self: center}
-@mixin ali-self-end {align-self: flex-end}
-@mixin ali-self-str {align-self: stretch}
-
-@mixin flex($val)        {flex: $val}
-@mixin flex-shrink($val) {flex-shrink: $val}
-@mixin flex-wrap($val)   {flex-wrap: $val}
-@mixin flex-nowrap       {@include flex-wrap(nowrap)}
-
-@mixin ord($val) {order: $val}
+@mixin flex-layout($dir: '', $jus: '', $ali: '') {
+  @if $dir != '' {@include flex-dir($dir)}
+  @if $jus != '' {@include flex-jus($jus)}
+  @if $ali != '' {@include flex-ali($ali)}
+}
 
 @mixin flex-dir($val) {
-  @if      $val == row {@include flex-dir-row}
-  @else if $val == col {@include flex-dir-col}
+  @if      $val == row {flex-direction: row}
+  @else if $val == col {flex-direction: column}
   @else {@error 'unknown flex-direction: #{$val}'}
 }
 
 @mixin flex-jus($val) {
-  @if      $val == sta {@include flex-jus-sta}
-  @else if $val == cen {@include flex-jus-cen}
-  @else if $val == end {@include flex-jus-end}
-  @else if $val == aro {@include flex-jus-aro}
-  @else if $val == bet {@include flex-jus-bet}
+  @if      $val == sta {justify-content: flex-start}
+  @else if $val == cen {justify-content: center}
+  @else if $val == end {justify-content: flex-end}
+  @else if $val == aro {justify-content: space-around}
+  @else if $val == bet {justify-content: space-between}
   @else {@error 'unknown flex-jus (justify-content) property: #{$val}'}
 }
 
 @mixin flex-ali($val) {
-  @if      $val == sta {@include flex-ali-sta}
-  @else if $val == cen {@include flex-ali-cen}
-  @else if $val == end {@include flex-ali-end}
-  @else if $val == str {@include flex-ali-str}
+  @if      $val == sta {align-items: flex-start}
+  @else if $val == cen {align-items: center}
+  @else if $val == end {align-items: flex-end}
+  @else if $val == str {align-items: stretch}
   @else {@error 'unknown flex-ali (align-items) property: #{$val}'}
 }
 
-@mixin flex-layout($dir: none, $jus: none, $ali: none) {
-  @if $dir != none {@include flex-dir($dir)}
-  @if $jus != none {@include flex-jus($jus)}
-  @if $ali != none {@include flex-ali($ali)}
-}
-
 @mixin ali-self($val) {
-  @if      $val == sta {@include ali-self-sta}
-  @else if $val == cen {@include ali-self-cen}
-  @else if $val == end {@include ali-self-end}
-  @else if $val == str {@include ali-self-str}
+  @if      $val == sta {align-self: flex-start}
+  @else if $val == cen {align-self: center}
+  @else if $val == end {align-self: flex-end}
+  @else if $val == str {align-self: stretch}
   @else {@error 'unknown ali-self (align-self) property: #{$val}'}
 }
 
@@ -295,29 +266,29 @@ Guideline.
 }
 
 @mixin cls-gap {
-  .gap-0       {@include gap(0)}
-  .gap-ver-0   {@include gap-ver(0)}
-  .gap-hor-0   {@include gap-hor(0)}
+  .gap-0       {gap: 0}
+  .gap-ver-0   {row-gap: 0}
+  .gap-hor-0   {column-gap: 0}
 
-  .gap-0x5     {@include gap(0.5rem)}
-  .gap-ver-0x5 {@include gap-ver(0.5rem)}
-  .gap-hor-0x5 {@include gap-hor(0.5rem)}
+  .gap-0x5     {gap: 0.5rem}
+  .gap-ver-0x5 {row-gap: 0.5rem}
+  .gap-hor-0x5 {column-gap: 0.5rem}
 
-  .gap-1       {@include gap(1rem)}
-  .gap-ver-1   {@include gap-ver(1rem)}
-  .gap-hor-1   {@include gap-hor(1rem)}
+  .gap-1       {gap: 1rem}
+  .gap-ver-1   {row-gap: 1rem}
+  .gap-hor-1   {column-gap: 1rem}
 
-  .gap-2       {@include gap(2rem)}
-  .gap-ver-2   {@include gap-ver(2rem)}
-  .gap-hor-2   {@include gap-hor(2rem)}
+  .gap-2       {gap: 2rem}
+  .gap-ver-2   {row-gap: 2rem}
+  .gap-hor-2   {column-gap: 2rem}
 
-  .gap-4       {@include gap(4rem)}
-  .gap-ver-4   {@include gap-ver(4rem)}
-  .gap-hor-4   {@include gap-hor(4rem)}
+  .gap-4       {gap: 4rem}
+  .gap-ver-4   {row-gap: 4rem}
+  .gap-hor-4   {column-gap: 4rem}
 
   // "let" is short for "letter".
-  .gap-ver-let {@include gap-ver(1ex)}           // TODO better letter height.
-  .gap-hor-let {@include gap-hor(calc(1em / 4))} // TODO better letter width.
+  .gap-ver-let {row-gap: 1ex}              // TODO better letter height.
+  .gap-hor-let {column-gap: calc(1em / 4)} // TODO better letter width.
 }
 
 @mixin mar-ver($val) {
@@ -340,16 +311,12 @@ Guideline.
   padding-right: $val;
 }
 
-@mixin gap($val) {gap: $val}
-@mixin gap-ver($val) {row-gap: $val}
-@mixin gap-hor($val) {column-gap: $val}
-
 @mixin cls-pos {
   .rel    {position: relative}
   .abs    {position: absolute}
   .fix    {position: fixed}
   .static {position: static}
-  .sticky {@include sticky}
+  .sticky {position: sticky}
 
   .top {top:    0}
   .rig {right:  0}
@@ -370,17 +337,6 @@ Guideline.
     @extend .lef-50p;
     transform: translateX(-50%);
   }
-
-  .rel     {position: relative}
-  .abs     {position: absolute}
-  .fix     {position: fixed}
-  .static  {position: static}
-  .sticky  {@include sticky}
-}
-
-@mixin sticky {
-  position: -webkit-sticky;
-  position: sticky;
 }
 
 @mixin cls-dis {
